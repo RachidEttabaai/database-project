@@ -67,6 +67,7 @@
         }
 
         ?>
+        <hr/>
         <ul class="nav nav-pills nav-fill justify-content-center">
             <li class="nav-item">
                 <a class="nav-link" href="customers.php">Clients</a></li>
@@ -78,6 +79,12 @@
                 <a class="nav-link disabled" href="#">Ventes</a>
             </li>
         </ul>
+        <hr/>
+        <form method="POST" action="">
+            <label for="search">Rechercher :</label>
+            <input type="text" name="search" />
+            <button type="submit" class="btn btn-primary">Recherche</button>
+        </form>
 
        
     </body>
