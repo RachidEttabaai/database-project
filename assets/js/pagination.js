@@ -1,6 +1,7 @@
 $(document).ready(function () {
-    
+
     $("#target").load("pagination.php?page=1")
+
     $("#pagination li").on("click",function(e){
 	    e.preventDefault()
 		$("#pagination li").removeClass('active')
