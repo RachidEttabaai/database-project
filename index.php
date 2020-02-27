@@ -90,7 +90,6 @@
                 <select name="where" id="where">
                     <option value="clients">Clients</option>
                     <option value="produits">Produits</option>
-                    <option value="ventes">Ventes</option>
                 </select>
                 <button type="submit" class="btn btn-primary" name="searching">Recherche</button>
             </form>
