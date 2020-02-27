@@ -83,7 +83,7 @@
 
         <section>
 
-            <form method="POST" action="">
+            <form method="POST" action="search.php">
                 <label for="search">Rechercher :</label>
                 <input type="text" name="search" />
                 <button type="submit" class="btn btn-primary">Recherche</button>
