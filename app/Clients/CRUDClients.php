@@ -26,6 +26,23 @@ class CRUDClients extends Modele{
     }
 
     /**
+     * Search clients' datas recorded in the database with a parameter in the search form
+     * 
+     * @return array
+     */
+    public function search(string $search):array
+    {
+        $querysearchcustomers = "SELECT * FROM Customer LEFT JOIN Address on Customer.customer_id = Address.customer_id WHERE firstname = :firstname OR lastname = :lastname";
+        $stmtsearch = $this->_pdo->prepare($querysearchcustomers);
+        $stmtsearch->bindParam(":firstname",$search);
+        $stmtsearch->bindParam(":lastname",$search);
+        $stmtsearch->execute();
+        $searchedcustomers = $stmtsearch->fetchAll();
+        $stmtsearch->closeCursor();
+        return $searchedcustomers;
+    }
+
+    /**
      * Read clients' datas recorded in the database
      * 
      * @return array
