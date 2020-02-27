@@ -86,6 +86,12 @@
             <form method="POST" action="search.php">
                 <label for="search">Rechercher :</label>
                 <input type="text" name="search" />
+                <label for="where">Type de contenu :</label>
+                <select name="where" id="where">
+                    <option value="clients">Clients</option>
+                    <option value="produits">Produits</option>
+                    <option value="ventes">Ventes</option>
+                </select>
                 <button type="submit" class="btn btn-primary">Recherche</button>
             </form>
 
