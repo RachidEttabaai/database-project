@@ -50,7 +50,8 @@
                     <td><?= $product["keywords"] ?></td>
                     <td><?= $product["price"] ?></td>
                     <td>
-                        <button id="edit" value="<?= $product["product_id"] ?>" class="btn btn-info"><em class="far fa-edit"></em></button>
+                        <button id="edit" value="<?= $product["product_id"] ?>" class="btn btn-primary"><em class="far fa-edit"></em></button>
+                        <button id="view" value="<?= $product["product_id"] ?>" class="btn btn-info"><em class="far fa-eye"></em></button>
                         <button id="delete" value="<?= $product["product_id"] ?>" class="btn btn-danger"><em class="far fa-trash-alt"></em></button>
                     </td>
                 </tr>
