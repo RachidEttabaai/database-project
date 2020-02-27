@@ -24,4 +24,19 @@ class CRUDProduits extends Modele{
         return $products;
     }
 
+    /**
+     * Search produits' datas recorded in the database with a parameter in the search form
+     * 
+     * @return array
+     */
+    public function search(string $search):array
+    {
+        $querysearchproducts = "SELECT * FROM Product LEFT JOIN Compagny on Product.product_id = Compagny.product_id WHERE name LIKE ?";
+        $stmtsearchproducts = $this->_pdo->prepare($querysearchproducts);
+        $stmtsearchproducts->execute(["%$search%"]);
+        $searchproducts = $stmtsearchproducts->fetchAll();
+        $stmtsearchproducts->closeCursor();
+        return $searchproducts;
+    }
+
 }

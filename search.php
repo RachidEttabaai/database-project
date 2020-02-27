@@ -1,6 +1,7 @@
 <?php
 require("vendor/autoload.php");
 use App\Clients\CRUDClients;
+use App\Produits\CRUDProduits;
 
 $search = (isset($_POST["search"]) && !empty($_POST["search"])) ? $_POST["search"] : "";
 $where = (isset($_POST["where"])) ? $_POST["where"] : "";
@@ -60,6 +61,58 @@ if($where === "clients")
             </tbody>
 </table>
     
+<?php
+    }
+}else{
+
+    $productsearched = new CRUDProduits();
+    $resultsearchs = $productsearched->search($search);
+
+    if(count($resultsearchs) === 0)
+    {   
+        ?>
+
+        <div class="alert alert-danger" role="alert">
+            Aucuns résultats pour la recherche
+        </div>
+
+        <?php
+
+    }else if($where === "produits"){
+?>
+<table id="listproduct" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Propriétaire</th>
+                    <th>Nom </th>
+                    <th>Description</th>
+                    <th>Url</th>
+                    <th>Mots clés</th>
+                    <th>Prix (€)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($resultsearchs as $resultsearch) :?>
+                <tr>
+                    <td><?= $resultsearch["product_id"] ?></td>
+                    <td><?= $resultsearch["name_compagny"] ?></td>
+                    <td><?= $resultsearch["name"] ?></td>
+                    <td><?= $resultsearch["description"] ?></td>
+                    <td><?= $resultsearch["url"] ?></td>
+                    <td><?= $resultsearch["keywords"] ?></td>
+                    <td><?= $resultsearch["price"] ?></td>
+                    <td>
+                        <button id="edit" value="<?= $resultsearch["product_id"] ?>" class="btn btn-primary"><em class="far fa-edit"></em></button>
+                        <button id="view" value="<?= $resultsearch["product_id"] ?>" class="btn btn-info"><em class="far fa-eye"></em></button>
+                        <button id="delete" value="<?= $resultsearch["product_id"] ?>" class="btn btn-danger"><em class="far fa-trash-alt"></em></button>
+                    </td>
+                </tr>
+            <?php endforeach;?>
+            </tbody>
+
+        </table>
 <?php
     }
 }
