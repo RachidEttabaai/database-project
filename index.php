@@ -83,7 +83,7 @@
 
         <section>
 
-            <form method="POST" action="search.php" id="search_form">
+            <form method="POST" id="search_form">
                 <label for="search">Rechercher :</label>
                 <input type="text" name="search" id="search"/>
                 <label for="where">Type de contenu :</label>
