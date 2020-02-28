@@ -8,7 +8,7 @@ $(document).ready(function () {
             data:"search="+$("#search").val()+"&where="+$("#where").val(),
             dataType: "html",
             success: function(html){
-                $("#search_form").append(html)
+                $("#resultsearch").html(html)
             }
         })
     })

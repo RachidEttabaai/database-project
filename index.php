@@ -76,7 +76,7 @@
                 <a class="nav-link" href="products.php">Produits</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Ventes</a>
+                <a class="nav-link" href="sellings.php">Ventes</a>
             </li>
         </ul>
         <hr/>
@@ -93,6 +93,9 @@
                 </select>
                 <button type="submit" class="btn btn-primary" name="searching">Recherche</button>
             </form>
+
+            <article id="resultsearch">
+            </article>
 
         </section>
 

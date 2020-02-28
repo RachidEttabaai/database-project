@@ -1,8 +1,7 @@
 <?php
     require("vendor/autoload.php");
 
-    use App\Clients\CRUDClients;
-
+    use App\Ventes\CRUDVentes;
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,27 +14,29 @@
 
         <h1 class="text-center">Projet "Base de données"</h1>
 
-        <h2>Listes des clients:</h2>
+        <h2>Listes des ventes:</h2>
 
         <?php 
-            $crudcustomers = new CRUDClients();
-            $nbcustomers = $crudcustomers->countCustomers();
-            $limit = 10;
-            $pagestotal = ceil($nbcustomers/$limit);
+
+        $crudsellings = new CRUDVentes();
+        $nbsellings = $crudsellings->countSellings();
+        $limit = 500;
+        $pagestotal = ceil($nbsellings/$limit);
+
         ?>
 
         <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center" id="pagination">
-            <?php if(!empty($pagestotal)): ?>
-                <?php for($i=1; $i<=$pagestotal; $i++): ?>
-                    <?php if($i==1): ?>
-                        <li class="page-item active"  id="<?= $i ?>"><a class="page-link" href="pagination.php?page=<?= $i ?>"><?php echo $i;?></a></li>
-                    <?php else:?>
-                        <li class="page-item" id="<?= $i ?>"><a class="page-link" href="pagination.php?page=<?= $i ?>"><?php echo $i;?></a></li>
-                    <?php endif; ?>
-                <?php endfor; ?>
-            <?php endif; ?>
-        </ul>
+            <ul class="pagination justify-content-center" id="pagination">
+                <?php if(!empty($pagestotal)): ?>
+                    <?php for($i=1; $i<=$pagestotal; $i++): ?>
+                        <?php if($i==1): ?>
+                            <li class="page-item active"  id="<?= $i ?>"><a class="page-link" href="paginate.php?page=<?= $i ?>"><?php echo $i;?></a></li>
+                        <?php else:?>
+                            <li class="page-item" id="<?= $i ?>"><a class="page-link" href="paginate.php?page=<?= $i ?>"><?php echo $i;?></a></li>
+                        <?php endif; ?>
+                    <?php endfor; ?>
+                <?php endif; ?>
+            </ul>
         </nav>
 
         <section id="target"></section>

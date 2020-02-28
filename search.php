@@ -14,12 +14,12 @@ if($where === "clients")
     $clientsearched = new CRUDClients();
     $resultsearchs = $clientsearched->search($search);
 
-    if(count($resultsearchs) === 0)
+    if(count($resultsearchs) === 0 && $search === "")
     {   
         ?>
 
         <div class="alert alert-danger" role="alert">
-            Aucuns résultats pour la recherche
+            Aucuns résultats pour la recherche du client
         </div>
 
         <?php
@@ -63,24 +63,24 @@ if($where === "clients")
     
 <?php
     }
-}else{
+}else if($where === "produits"){
 
     $productsearched = new CRUDProduits();
     $resultsearchs = $productsearched->search($search);
 
-    if(count($resultsearchs) === 0)
+    if(count($resultsearchs) === 0 && $search === "")
     {   
         ?>
 
         <div class="alert alert-danger" role="alert">
-            Aucuns résultats pour la recherche
+            Aucuns résultats pour la recherche du produit
         </div>
 
         <?php
 
-    }else if($where === "produits"){
+    }else{
 ?>
-<table id="listproduct" class="table table-bordered table-striped">
+<table id="listproducts" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Id</th>
