@@ -40,9 +40,13 @@ $customers = $crudcustomers->readwithpaginate($limit,$start_from);
                     <td><?= $customer["country"] ?></td>
                     <td>
                         <form id="CRUDCustomers" method="POST">
-                        <button type="submit" value="edit" id="<?= $customer["customer_id"] ?>" class="far fa-edit btn btn-secondary"></button>
-                        <button type="submit" value="view"  id="<?= $customer["customer_id"] ?>" class="far fa-eye btn btn-info"></button>
-                        <button type="submit" value="delete"  id="<?= $customer["customer_id"] ?>" class="far fa-trash-alt btn btn-danger"></button>
+                            <select name="type_action" id="type_action">
+                                <option value="edit">Editer</option>
+                                <option value="view">Voir</option>
+                                <option value="delete">Supprimer</option>
+                            </select>
+                            <input type="hidden" name="customer_id" value="<?= $customer["customer_id"] ?>" />
+                            <button type="submit" class="btn btn-primary" name="execute_action">Execute</button>
                         </form>
                     </td>
                 </tr>
